@@ -44,3 +44,7 @@ li a:hover {
   background-color: #232a44;
 }
 
+.nav {
+	position:fixed;
+	top:20px;
+}
