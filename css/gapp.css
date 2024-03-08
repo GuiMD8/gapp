@@ -1,19 +1,19 @@
 body {
-  background-color: powderblue;
+  background-color: #10101c;
 }
 h1 {
-  color: blue;
+  color: #6767ae;
   font-family: verdana;
   font-size: 300%;
-  border: 2px solid blue;
+  border: 2px solid #6767ae;
   padding: 30px;
   margin: 50px;
 }
 p {
-  color: red;
+  color: #a8a8cc;
   font-family: courier;
   font-size: 160%;
-  border: 3px solid red;
+  border: 3px solid #a8a8cc;
   padding: 30px;
   margin: 50px;
 }
