@@ -1,85 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="05" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Teste 1</title>
-  </head>
-  <body>
-    <ul>
-	<li>
-		<a href="#">
-			<i class="ai-home"></i>
-			<span>Dashboard</span>
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			<i class="ai-image"></i>
-			<span>Images</span>
-		</a>
-	</li>	
-	<li>
-		<a href="#">
-			<i class="ai-file"></i>
-			<span>Files</span>
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			<i class="ai-game-controller"></i>
-			<span>Games</span>
-		</a>
-	</li>	
-	<li>
-		<a href="#">
-			<i class="ai-book-open"></i>
-			<span>Books</span>
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			<i class="ai-bell"></i>
-			<span>Notifications</span>
-		</a>
-	</li>
-	<li>	
-		<a href="#">
-			<i class="ai-gear"></i>
-			<span>Settings</span>
-		</a>
-	</li>
-	<li>
-		<a href="#">
-			<i class="ai-person"></i>
-			<span>Profile</span>
-		</a>
-	</li>
-</ul>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site para Smart TV</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-item {
+    padding: 10px;
+    margin: 5px;
+    background-color: #444;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+  }
+  .menu-item:focus {
+    outline: none;
+    background-color: #555;
+  }
+</style>
+</head>
+<body>
+<div class="menu">
+  <button class="menu-item" onclick="alert('Item 1 selecionado')">Item 1</button>
+  <button class="menu-item" onclick="alert('Item 2 selecionado')">Item 2</button>
+  <button class="menu-item" onclick="alert('Item 3 selecionado')">Item 3</button>
+</div>
 
-<details>
-	<summary>How it works<i class="ai-question-fill"></i></summary>
-	<div>
-			<p>Inside each <code>&lt;a&gt;</code> element there's a hidden (using transform and opacity) <code>&lt;span&gt;</code> containing the text. Like this: </p>
-		<p><pre><code>a span { 
-&nbsp;position: absolute;
-&nbsp;left: calc(100% + 1.5rem); //Moves it all the way to the right
-&nbsp;
-&nbsp;opacity: 0;
-&nbsp;transform: scale(0);
-&nbsp;transform-origin: center left;
-&nbsp;transition: .15s ease;
-}</code></pre> </p>
-<p>On hover or focus this span becomes visible through a transition of both transform and opacity. Like this:</p>
-<p><pre><code>a:hover span, a:focus span { 
-&nbsp;opacity: 1;
-&nbsp;transform: scale(1);
-}</code></pre> </p>
-	<p>The <code>&lt;span&gt;</code> also has a psuedo-element in the shape of a rectangle, but rotated 45 degrees to make it look like a triangle. See the code for more details.</p>
-	</div>
-</details>
-<script src='https://unpkg.com/akar-icons-fonts'></script><script  src="./script.js"></script>
-  </body>
+<script>
+  // Adiciona suporte para navegação com o controle remoto
+  document.addEventListener('keydown', function(e) {
+    const activeElement = document.activeElement;
+    const menuItems = document.querySelectorAll('.menu-item');
+    let newIndex;
+    switch(e.keyCode) {
+      case 38: // Seta para cima
+        newIndex = Array.from(menuItems).indexOf(activeElement) - 1;
+        if(newIndex >= 0) {
+          menuItems[newIndex].focus();
+        }
+        break;
+      case 40: // Seta para baixo
+        newIndex = Array.from(menuItems).indexOf(activeElement) + 1;
+        if(newIndex < menuItems.length) {
+          menuItems[newIndex].focus();
+        }
+        break;
+    }
+  });
+</script>
+</body>
 </html>
