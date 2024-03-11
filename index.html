@@ -3,65 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="js/key.js"></script>
+<meta http-equiv="refresh" content="05" />
 <title>Site para Smart TV</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #333;
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-  .menu {
-    display: flex;
-    flex-direction: column;
-  }
-  .menu-item {
-    padding: 10px;
-    margin: 5px;
-    background-color: #444;
-    border: none;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-  }
-  .menu-item:focus {
-    outline: none;
-    background-color: #555;
-  }
-</style>
 </head>
 <body>
-<div class="menu">
+    <div class="menu">
   <button class="menu-item" onclick="alert('Item 1 selecionado')">Item 1</button>
   <button class="menu-item" onclick="alert('Item 2 selecionado')">Item 2</button>
   <button class="menu-item" onclick="alert('Item 3 selecionado')">Item 3</button>
 </div>
-
-<script>
-  // Adiciona suporte para navegação com o controle remoto
-  document.addEventListener('keydown', function(e) {
-    const activeElement = document.activeElement;
-    const menuItems = document.querySelectorAll('.menu-item');
-    let newIndex;
-    switch(e.keyCode) {
-      case 38: // Seta para cima
-        newIndex = Array.from(menuItems).indexOf(activeElement) - 1;
-        if(newIndex >= 0) {
-          menuItems[newIndex].focus();
-        }
-        break;
-      case 40: // Seta para baixo
-        newIndex = Array.from(menuItems).indexOf(activeElement) + 1;
-        if(newIndex < menuItems.length) {
-          menuItems[newIndex].focus();
-        }
-        break;
-    }
-  });
-</script>
 </body>
 </html>
